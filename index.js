@@ -1,10 +1,26 @@
 const SMTPServer = require("smtp-server").SMTPServer;
 
-
-
 const server = new SMTPServer({
-    secure: true,
-    key: fs.readFileSync("private.key"),
-    cert: fs.readFileSync("server.crt"),
-  });
-  server.listen(465);
+  allowInsecureAuth: true,
+  authOptional: true,
+  onConnect(session, callback) {
+    console.log("Server connected",session.id);
+    callback();
+  },
+  onClose(session) {
+    console.log("Server closed");
+  },
+  onMailFrom(address, session, callback) {
+    console.log("Mail from:", address.address);
+    callback();
+  },
+  onRcptTo(address, session, callback) {
+    console.log("Mail to:", address.address);
+    callback();
+  },
+  onData(stream, session, callback) {
+    stream.pipe(process.stdout);
+    stream.on("end", callback);
+  },
+});
+server.listen(25)
