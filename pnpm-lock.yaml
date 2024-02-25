@@ -1,0 +1,69 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  smtp-server:
+    specifier: ^3.13.2
+    version: 3.13.2
+
+devDependencies:
+  '@types/smtp-server':
+    specifier: ^3.5.10
+    version: 3.5.10
+
+packages:
+
+  /@types/node@20.11.20:
+    resolution: {integrity: sha512-7/rR21OS+fq8IyHTgtLkDK949uzsa6n8BkziAKtPVpugIkO6D+/ooXMvzXxDnZrmtXVfjb1bKQafYpb8s89LOg==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
+  /@types/nodemailer@6.4.14:
+    resolution: {integrity: sha512-fUWthHO9k9DSdPCSPRqcu6TWhYyxTBg382vlNIttSe9M7XfsT06y0f24KHXtbnijPGGRIcVvdKHTNikOI6qiHA==}
+    dependencies:
+      '@types/node': 20.11.20
+    dev: true
+
+  /@types/smtp-server@3.5.10:
+    resolution: {integrity: sha512-i3Jx7sJ2qF52vjaOf3HguulXlWRFf6BSfsRLsIdmytDyVGv7KkhSs+gR9BXJnJWg1Ljkh/56Fh1Xqwa6u6X7zw==}
+    dependencies:
+      '@types/node': 20.11.20
+      '@types/nodemailer': 6.4.14
+    dev: true
+
+  /base32.js@0.1.0:
+    resolution: {integrity: sha512-n3TkB02ixgBOhTvANakDb4xaMXnYUVkNoRFJjQflcqMQhyEKxEHdj3E6N8t8sUQ0mjH/3/JxzlXuz3ul/J90pQ==}
+    engines: {node: '>=0.12.0'}
+    dev: false
+
+  /ipv6-normalize@1.0.1:
+    resolution: {integrity: sha512-Bm6H79i01DjgGTCWjUuCjJ6QDo1HB96PT/xCYuyJUP9WFbVDrLSbG4EZCvOCun2rNswZb0c3e4Jt/ws795esHA==}
+    dev: false
+
+  /nodemailer@6.9.9:
+    resolution: {integrity: sha512-dexTll8zqQoVJEZPwQAKzxxtFn0qTnjdQTchoU6Re9BUUGBJiOy3YMn/0ShTW6J5M0dfQ1NeDeRTTl4oIWgQMA==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
+  /punycode@2.3.1:
+    resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /smtp-server@3.13.2:
+    resolution: {integrity: sha512-MWHAmsIlrfffQ75RDruOr5DhOJF8sPeG4iSW8a0euhOjaV107OGaRo30RXmmnmoKxS1mvaL+dtSEKbgev/9YeQ==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      base32.js: 0.1.0
+      ipv6-normalize: 1.0.1
+      nodemailer: 6.9.9
+      punycode: 2.3.1
+    dev: false
+
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
