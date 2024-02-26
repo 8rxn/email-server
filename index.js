@@ -1,10 +1,11 @@
 const SMTPServer = require("smtp-server").SMTPServer;
+const simpleParser = require("mailparser").simpleParser;
 
 const server = new SMTPServer({
   allowInsecureAuth: true,
   authOptional: true,
   onConnect(session, callback) {
-    console.log("Server connected",session.id);
+    console.log("Server connected", session.id);
     callback();
   },
   onClose(session) {
@@ -19,8 +20,14 @@ const server = new SMTPServer({
     callback();
   },
   onData(stream, session, callback) {
-    stream.pipe(process.stdout);
-    stream.on("end", callback);
+    simpleParser(stream, {}, (err, mail) => {
+      if (err) {
+        console.log("Error parsing mail", err);
+        return;
+      }
+      console.log("Parsed mail", mail);
+      stream.on("end", callback);
+    });
   },
 });
-server.listen(25)
+server.listen(25);
